@@ -125,3 +125,51 @@ const respuestaFilter = arreglo
     );
 console.log('respuesta filter', respuestaFilter);
 console.log('Arreglo original', arreglo)
+
+
+//Operadores logicos
+
+// Hay ALGUNA nota menor a 9? Si o No
+//SOME -> expresion
+// Devuelve booleano, es como decir OR
+const respuestaSome = arreglo
+    .some(
+        (valorActual,indiceActual,arregloCompleto)=> {
+            return valorActual.nota < 9;
+        }
+);
+console.log('respuesta some', respuestaSome);
+
+//EVERY -> expresion
+//Devuelve booleano
+//TODAS las notas son mayores a 14? SI NO
+// Similar al operador logico AND
+const respuestaEvery = arreglo
+    .every(
+        (valorActual,indiceActual,arregloCompleto)=> {
+            return valorActual.nota > 9;
+        }
+    );
+console.log('respuesta every', respuestaEvery);
+
+//
+//reduce va de izquierda a derecha
+//reduceRight va de derecha a izquierda
+const respuestaReduce = arreglo
+    .reduce(
+        (valorAcumulado, valorActual, indice, arreglo) => {
+            return valorAcumulado + valorActual.nota
+        },
+        0 //acumulador
+    );
+console.log('respuesta reduce', respuestaReduce);
+
+
+//Multiplicar a la nota por 0.30
+const arregloEstudiantesMenoresANueve = arreglo
+    .map((v) => v.nota * 1.3) //anadiendo el 30%
+    .fill(nota => nota < 9); //Busco los < 9
+const totalPuntosEstudiantes = arregloEstudiantesMenoresANueve
+    .reduce((acumulado, actual) => acumulado + actual, 0);
+const notaPromedio = totalPuntosEstudiantes / arregloEstudiantesMenoresANueve.length;
+console.log("Nota Promedio: ", notaPromedio);
