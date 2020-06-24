@@ -168,7 +168,7 @@ console.log('respuesta reduce', respuestaReduce);
 //Multiplicar a la nota por 0.30
 const arregloEstudiantesMenoresANueve = arreglo
     .map((v) => v.nota * 1.3) //anadiendo el 30%
-    .fill(nota => nota < 9); //Busco los < 9
+    .filter((nota) => nota < 9); //Busco los < 9
 const totalPuntosEstudiantes = arregloEstudiantesMenoresANueve
     .reduce((acumulado, actual) => acumulado + actual, 0);
 const notaPromedio = totalPuntosEstudiantes / arregloEstudiantesMenoresANueve.length;
