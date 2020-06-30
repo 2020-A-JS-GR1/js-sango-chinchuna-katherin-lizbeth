@@ -1,5 +1,5 @@
 
-const fs = require('fs'); // importamos la libreria
+const fs = require('fs'); // importamos la libreria del filesystem
 
 console.log('Primero'); //SINCRONA
 
