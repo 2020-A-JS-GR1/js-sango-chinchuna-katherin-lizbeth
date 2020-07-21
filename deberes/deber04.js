@@ -178,7 +178,7 @@ async function ControladorGeneros(respuesta) {
                         type: 'rawlist',
                         name: 'gender',
                         message: 'SUB-MENU GENERO',
-                        choices: ['Codigo', 'Nombre', 'Descripcion', 'Popularidad', 'Recaudacion en taquilla']
+                        choices: ['Codigo', 'Nombre', 'Descripcion', 'Popularidad', 'Año de aparicion']
                     }
                 ]);
 
@@ -242,7 +242,7 @@ async function ControladorGeneros(respuesta) {
                     listaActualizada = nuevaListaActualizar(listaGenerosMo);
                     await promesaEscribirArchivo(path, listaActualizada);
                     break;
-                case 'Recaudacion en taquilla':
+                case 'Año de aparicion':
                     const respuestaRec = await inquirer
                         .prompt([
                             {
@@ -345,8 +345,8 @@ async function ControladorPeliculas(respuesta) {
                     {
 
                         type: 'confirm',
-                        name: 'ganador_oscar',
-                        message: 'La pelicula ha ganado algun Oscar?'
+                        name: 'estrenada',
+                        message: 'La pelicula ya se estreno?'
                     },
 
                 ]);
@@ -377,7 +377,7 @@ async function ControladorPeliculas(respuesta) {
                         type: 'rawlist',
                         name: 'movie',
                         message: 'SUB-MENU GENERO',
-                        choices: ['Codigo', 'Nombre', 'Fecha de estreno', 'Duracion', 'Oscar']
+                        choices: ['Codigo', 'Nombre', 'Fecha de estreno', 'Duracion', 'Estreno']
                     }
                 ]);
 
@@ -441,16 +441,16 @@ async function ControladorPeliculas(respuesta) {
                     listaActualizada = nuevaListaActualizar(listaPeliculasMo);
                     await promesaEscribirArchivo(path, listaActualizada);
                     break;
-                case 'Oscar':
+                case 'Estreno':
                     const respuestaGa = await inquirer
                         .prompt([
                             {
                                 type: 'confirm',
-                                name: 'oscarActulizar',
-                                message: 'La pelicula ha ganado algun Oscar?'
+                                name: 'estrenarActulizar',
+                                message: 'La pelicula ya se estreno?'
                             }
                         ]);
-                    listaPeliculasMo[id].ganador_oscar = respuestaGa.oscarActulizar;
+                    listaPeliculasMo[id].estrenada = respuestaGa.estrenarActulizar;
                     listaActualizada = nuevaListaActualizar(listaPeliculasMo);
                     await promesaEscribirArchivo(path, listaActualizada);
                     break;

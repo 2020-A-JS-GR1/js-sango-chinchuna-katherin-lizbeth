@@ -1,2 +1,2 @@
-{"codigo":"000001","nombre":"Las Aventuras Del Doctor Dolittle","fecha_estreno":"24 de enero de 2020","duracion":105,"ganador_oscar":false}
-{"codigo":"000002","nombre":"Avengers: Endgame","fecha_estreno":"22 de abril de 2019","duracion":181,"ganador_oscar":false}
+{"codigo":"000001","nombre":"Las Aventuras Del Doctor Dolittle","fecha_estreno":"24 de enero de 2020","duracion":105,"estrenada":true}
+{"codigo":"000002","nombre":"Avengers: Endgame","fecha_estreno":"22 de abril de 2019","duracion":181,"estrenada":true}
