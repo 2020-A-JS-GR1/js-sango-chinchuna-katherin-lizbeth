@@ -122,25 +122,26 @@ async function ControladorGeneros(respuesta) {
                     {
                         type: 'input',
                         name: 'codigo',
-                        message: 'Codigo del genero (Ejm. 00001)'
+                        message: 'Codigo del genero (Ejm. 00001):'
 
                     },
                     {
                         type: 'input',
                         name: 'nombre',
-                        message: 'Nombre del genero',
+                        message: 'Nombre del genero:',
                     },
                     {
 
                         type: 'input',
                         name: 'descripcion',
-                        message: 'Breve descripcion'
+                        message: 'Breve descripcion:'
                     },
                     {
 
-                        type: 'input',
+                        type: 'rawlist',
                         name: 'popular',
-                        message: 'Es considerado un genero popular? (true / false)'
+                        message: 'Es considerado un genero popular?',
+                        choices: ['true','false']
                     },
                     {
 
@@ -232,13 +233,14 @@ async function ControladorGeneros(respuesta) {
                     const respuestaPop = await inquirer
                         .prompt([
                             {
-                                type: 'input',
+                                type: 'rawlist',
                                 name: 'popularidadActulizar',
-                                message: 'Pertenece a los generos populares? (true / false):'
+                                message: 'Pertenece a los generos populares?',
+                                choices: ['true', 'false']
 
                             }
                         ]);
-                    listaGenerosMo[id].popularidad = respuestaPop.popularidadActulizar;
+                    listaGenerosMo[id].popular = respuestaPop.popularidadActulizar;
                     listaActualizada = nuevaListaActualizar(listaGenerosMo);
                     await promesaEscribirArchivo(path, listaActualizada);
                     break;
@@ -344,9 +346,10 @@ async function ControladorPeliculas(respuesta) {
                     },
                     {
 
-                        type: 'input',
+                        type: 'rawlist',
                         name: 'ganador_oscar',
-                        message: 'La pelicula ha ganado algun Oscar?  (true / false)'
+                        message: 'La pelicula ha ganado algun Oscar?',
+                        choices: ['true', 'false']
                     },
 
                 ]);
@@ -445,9 +448,10 @@ async function ControladorPeliculas(respuesta) {
                     const respuestaGa = await inquirer
                         .prompt([
                             {
-                                type: 'input',
+                                type: 'rawlist',
                                 name: 'oscarActulizar',
-                                message: 'La pelicula ha ganado algun Oscar (true / false):'
+                                message: 'La pelicula ha ganado algun Oscar?',
+                                choices: ['true', 'false']
 
                             }
                         ]);
