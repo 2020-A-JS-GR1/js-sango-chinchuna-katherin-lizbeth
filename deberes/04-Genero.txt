@@ -1,0 +1,2 @@
+{"codigo":"00002","nombre":"Aventura","descripcion":"refleja un mundo heroico de combates y aventuras, y en el que suele predominar la acción y valores caballerescos.","popular":"false","año":"1980"}
+{"codigo":"00001","nombre":"Ciencia Ficcion","descripcion":"se basa en un futuro cercano o muy lejano, donde se logra ver el avance de la tecnología y como ejecuta este en la historia.","popular":"true","año":"1977"}

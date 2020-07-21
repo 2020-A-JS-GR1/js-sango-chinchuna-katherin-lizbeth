@@ -1,0 +1,1 @@
+{"codigo":"cod1","nombre":"mareria","horario":"11-12","precio":"12.3","periodo":"2020A"}
