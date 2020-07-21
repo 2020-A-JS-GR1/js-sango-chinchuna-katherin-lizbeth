@@ -138,14 +138,13 @@ async function ControladorGeneros(respuesta) {
                     },
                     {
 
-                        type: 'rawlist',
+                        type: 'confirm',
                         name: 'popular',
-                        message: 'Es considerado un genero popular?',
-                        choices: ['true','false']
+                        message: 'Es considerado un genero popular?'
                     },
                     {
 
-                        type: 'input',
+                        type: 'number',
                         name: 'año',
                         message: 'Ingrese el año de aparicion: '
                     },
@@ -233,10 +232,9 @@ async function ControladorGeneros(respuesta) {
                     const respuestaPop = await inquirer
                         .prompt([
                             {
-                                type: 'rawlist',
+                                type: 'confirm',
                                 name: 'popularidadActulizar',
-                                message: 'Pertenece a los generos populares?',
-                                choices: ['true', 'false']
+                                message: 'Pertenece a los generos populares?'
 
                             }
                         ]);
@@ -248,7 +246,7 @@ async function ControladorGeneros(respuesta) {
                     const respuestaRec = await inquirer
                         .prompt([
                             {
-                                type: 'input',
+                                type: 'number',
                                 name: 'añoActulizar',
                                 message: 'Ingrese el año de aparicion:'
 
@@ -340,16 +338,15 @@ async function ControladorPeliculas(respuesta) {
                     },
                     {
 
-                        type: 'input',
+                        type: 'number',
                         name: 'duracion',
                         message: 'Duracion en minutos'
                     },
                     {
 
-                        type: 'rawlist',
+                        type: 'confirm',
                         name: 'ganador_oscar',
-                        message: 'La pelicula ha ganado algun Oscar?',
-                        choices: ['true', 'false']
+                        message: 'La pelicula ha ganado algun Oscar?'
                     },
 
                 ]);
@@ -434,7 +431,7 @@ async function ControladorPeliculas(respuesta) {
                     const respuestaDu = await inquirer
                         .prompt([
                             {
-                                type: 'input',
+                                type: 'number',
                                 name: 'duracionActulizar',
                                 message: 'Ingrese la nueva duracion de la pelicula:'
 
@@ -448,11 +445,9 @@ async function ControladorPeliculas(respuesta) {
                     const respuestaGa = await inquirer
                         .prompt([
                             {
-                                type: 'rawlist',
+                                type: 'confirm',
                                 name: 'oscarActulizar',
-                                message: 'La pelicula ha ganado algun Oscar?',
-                                choices: ['true', 'false']
-
+                                message: 'La pelicula ha ganado algun Oscar?'
                             }
                         ]);
                     listaPeliculasMo[id].ganador_oscar = respuestaGa.oscarActulizar;
