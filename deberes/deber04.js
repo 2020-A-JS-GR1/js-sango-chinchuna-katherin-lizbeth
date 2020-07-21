@@ -175,7 +175,7 @@ async function ControladorGeneros(respuesta) {
             const respuesta = await inquirer
                 .prompt([
                     {
-                        type: 'list',
+                        type: 'rawlist',
                         name: 'gender',
                         message: 'SUB-MENU GENERO',
                         choices: ['Codigo', 'Nombre', 'Descripcion', 'Popularidad', 'Recaudacion en taquilla']
@@ -340,7 +340,7 @@ async function ControladorPeliculas(respuesta) {
 
                         type: 'number',
                         name: 'duracion',
-                        message: 'Duracion en minutos'
+                        message: 'Duracion en minutos:'
                     },
                     {
 
@@ -374,7 +374,7 @@ async function ControladorPeliculas(respuesta) {
             const respuesta = await inquirer
                 .prompt([
                     {
-                        type: 'list',
+                        type: 'rawlist',
                         name: 'movie',
                         message: 'SUB-MENU GENERO',
                         choices: ['Codigo', 'Nombre', 'Fecha de estreno', 'Duracion', 'Oscar']
@@ -547,7 +547,7 @@ function promesaEscribirArchivo(path, contenidoNuevo) {
 const promesaSeleccionarGenero = (genero) => {
     return inquirer
         .prompt({
-            type: 'list',
+            type: 'rawlist',
             name: 'codGen',
             message: 'Seleccione un genero',
             choices: genero,
@@ -558,7 +558,7 @@ const promesaSeleccionarGenero = (genero) => {
 const promesaSeleccionarPelicula = (pelicula) => {
     return inquirer
         .prompt({
-            type: 'list',
+            type: 'rawlist',
             name: 'codMov',
             message: 'Seleccione una pelicula',
             choices: pelicula,
