@@ -51,7 +51,6 @@ async function mainMenu() {
 async function submenuGenero() {
 
     try {
-        //console.log('Sub menu generos');
         const respuestasGenero = await inquirer
             .prompt([
                 {
@@ -63,7 +62,6 @@ async function submenuGenero() {
             ]);
 
         const genderMovie = respuestasGenero.opcion;
-        //console.log(genderMovie);
         ControladorGeneros(genderMovie);
 
     } catch (e) {
@@ -75,7 +73,6 @@ async function submenuGenero() {
 async function submenuPelicula() {
 
     try {
-        //console.log('Sub menu Peliculas');
         const respuestasPelicula = await inquirer
             .prompt([
                 {
@@ -87,7 +84,6 @@ async function submenuPelicula() {
             ]);
 
         const movie = respuestasPelicula.opcion;
-        console.log(movie);
         ControladorPeliculas(movie);
     } catch (e) {
         console.error(e);
@@ -102,8 +98,8 @@ async function submenuPelicula() {
 async function ControladorGeneros(respuesta) {
 
     const path = './04-Genero.txt';
-    switch (respuesta) {
 
+    switch (respuesta) {
         case 'Lista de Generos':
 
             const leerArchivoGeneroM = await promesaLeerArchivo(path);
@@ -111,7 +107,7 @@ async function ControladorGeneros(respuesta) {
             if (leerArchivoGeneroM === '') {
                 console.log('No existen registros');
             } else {
-                console.log(listaGeneros);
+                console.table(listaGeneros);
             }
             submenuGenero();
             break;
@@ -185,7 +181,7 @@ async function ControladorGeneros(respuesta) {
             //modificacion
             let listaActualizada = '';
             const id = idModificar(listaGenerosMo, respuestaSelectModificar); //obtiene el indice del codigo que va a modificar
-            console.log(listaGenerosMo[id]); //pendiente verificar
+            console.table(listaGenerosMo[id]);
             switch (respuesta.gender) {
                 case 'Codigo':
                     const respuestacod = await inquirer
@@ -312,7 +308,7 @@ async function ControladorPeliculas(respuesta) {
             if (leerArchivoPeliculaM === '')
                 console.log('No existen registros');
             else
-                console.log(listaPeliculas);
+                console.table(listaPeliculas);
             submenuPelicula();
             break;
 
@@ -384,7 +380,7 @@ async function ControladorPeliculas(respuesta) {
             //modificacion
             let listaActualizada = '';
             const id = idModificarPelicula(listaPeliculasMo, respuestaSelectModificar); // obtiene indice del codigo de la pelicula a modificar
-            console.log(listaPeliculasMo[id]); //pendiente
+            console.table(listaPeliculasMo[id]); //pendiente
             switch (respuesta.movie) {
                 case 'Codigo':
                     const respuestacod = await inquirer
