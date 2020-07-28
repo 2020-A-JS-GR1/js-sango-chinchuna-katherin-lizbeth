@@ -146,7 +146,6 @@ async function ControladorGeneros(respuesta) {
                     },
 
                 ]);
-
             const leerArchivoGenero = await promesaLeerArchivo(path);
 
             //verificar si el archivo esta vacio
@@ -346,8 +345,16 @@ async function ControladorPeliculas(respuesta) {
                     },
 
                 ]);
-
             const leerArchivoPelicula = await promesaLeerArchivo(path);
+            //obtener nombres de los generos
+            const leerArchivoGenero = await promesaLeerArchivo("./04-Genero.txt");
+            let listaGeneros = listaDatos(leerArchivoGenero);
+            const respuestaSelect = await promesaSeleccionarGeneroNombre(listaGeneros.map(
+                valorActual => {
+                    return valorActual.nombre;
+                }
+            ));
+            respuestaP["genero"] = respuestaSelect.genderName;
 
             //verificar si el archivo esta vacio
             if (leerArchivoPelicula.length !== 0)
@@ -558,6 +565,17 @@ const promesaSeleccionarPelicula = (pelicula) => {
             name: 'codMov',
             message: 'Seleccione una pelicula',
             choices: pelicula,
+        });
+
+}
+
+const promesaSeleccionarGeneroNombre = (genero) => {
+    return inquirer
+        .prompt({
+            type: 'list',
+            name: 'genderName',
+            message: 'Seleccione una pelicula',
+            choices: genero,
         });
 
 }
