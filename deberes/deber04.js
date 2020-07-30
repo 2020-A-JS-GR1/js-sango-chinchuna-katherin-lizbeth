@@ -380,7 +380,7 @@ async function ControladorPeliculas(respuesta) {
                         type: 'rawlist',
                         name: 'movie',
                         message: 'SUB-MENU GENERO',
-                        choices: ['Codigo', 'Nombre', 'Fecha de estreno', 'Duracion', 'Estreno']
+                        choices: ['Codigo', 'Nombre','Genero', 'Fecha de estreno', 'Duracion', 'Estreno']
                     }
                 ]);
 
@@ -413,6 +413,18 @@ async function ControladorPeliculas(respuesta) {
                             }
                         ]);
                     listaPeliculasMo[id].nombre = respuestaNom.nombreActulizar;
+                    listaActualizada = nuevaListaActualizar(listaPeliculasMo);
+                    await promesaEscribirArchivo(path, listaActualizada);
+                    break;
+                case 'Genero':
+                    const leerArchivoGenero = await promesaLeerArchivo("./04-Genero.txt");
+                    let listaGeneros = listaDatos(leerArchivoGenero);
+                    const respuestaSelect = await promesaSeleccionarGeneroNombre(listaGeneros.map(
+                        valorActual => {
+                            return valorActual.nombre;
+                        }
+                    ));
+                    listaPeliculasMo[id].genero = respuestaSelect.genderName;
                     listaActualizada = nuevaListaActualizar(listaPeliculasMo);
                     await promesaEscribirArchivo(path, listaActualizada);
                     break;
@@ -552,7 +564,7 @@ const promesaSeleccionarGenero = (genero) => {
         .prompt({
             type: 'rawlist',
             name: 'codGen',
-            message: 'Seleccione un genero',
+            message: 'Seleccione el codigo del genero',
             choices: genero,
         });
 
@@ -563,7 +575,7 @@ const promesaSeleccionarPelicula = (pelicula) => {
         .prompt({
             type: 'rawlist',
             name: 'codMov',
-            message: 'Seleccione una pelicula',
+            message: 'Seleccione el codigo de la pelicula',
             choices: pelicula,
         });
 
@@ -574,7 +586,7 @@ const promesaSeleccionarGeneroNombre = (genero) => {
         .prompt({
             type: 'list',
             name: 'genderName',
-            message: 'Seleccione una pelicula',
+            message: 'Seleccione un genero',
             choices: genero,
         });
 
