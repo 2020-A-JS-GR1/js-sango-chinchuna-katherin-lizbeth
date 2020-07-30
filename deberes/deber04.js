@@ -146,7 +146,6 @@ async function ControladorGeneros(respuesta) {
                     },
 
                 ]);
-
             const leerArchivoGenero = await promesaLeerArchivo(path);
 
             //verificar si el archivo esta vacio
@@ -346,8 +345,16 @@ async function ControladorPeliculas(respuesta) {
                     },
 
                 ]);
-
             const leerArchivoPelicula = await promesaLeerArchivo(path);
+            //obtener nombres de los generos
+            const leerArchivoGenero = await promesaLeerArchivo("./04-Genero.txt");
+            let listaGeneros = listaDatos(leerArchivoGenero);
+            const respuestaSelect = await promesaSeleccionarGeneroNombre(listaGeneros.map(
+                valorActual => {
+                    return valorActual.nombre;
+                }
+            ));
+            respuestaP["genero"] = respuestaSelect.genderName;
 
             //verificar si el archivo esta vacio
             if (leerArchivoPelicula.length !== 0)
@@ -373,7 +380,7 @@ async function ControladorPeliculas(respuesta) {
                         type: 'rawlist',
                         name: 'movie',
                         message: 'SUB-MENU GENERO',
-                        choices: ['Codigo', 'Nombre', 'Fecha de estreno', 'Duracion', 'Estreno']
+                        choices: ['Codigo', 'Nombre','Genero', 'Fecha de estreno', 'Duracion', 'Estreno']
                     }
                 ]);
 
@@ -406,6 +413,18 @@ async function ControladorPeliculas(respuesta) {
                             }
                         ]);
                     listaPeliculasMo[id].nombre = respuestaNom.nombreActulizar;
+                    listaActualizada = nuevaListaActualizar(listaPeliculasMo);
+                    await promesaEscribirArchivo(path, listaActualizada);
+                    break;
+                case 'Genero':
+                    const leerArchivoGenero = await promesaLeerArchivo("./04-Genero.txt");
+                    let listaGeneros = listaDatos(leerArchivoGenero);
+                    const respuestaSelect = await promesaSeleccionarGeneroNombre(listaGeneros.map(
+                        valorActual => {
+                            return valorActual.nombre;
+                        }
+                    ));
+                    listaPeliculasMo[id].genero = respuestaSelect.genderName;
                     listaActualizada = nuevaListaActualizar(listaPeliculasMo);
                     await promesaEscribirArchivo(path, listaActualizada);
                     break;
@@ -545,7 +564,7 @@ const promesaSeleccionarGenero = (genero) => {
         .prompt({
             type: 'rawlist',
             name: 'codGen',
-            message: 'Seleccione un genero',
+            message: 'Seleccione el codigo del genero',
             choices: genero,
         });
 
@@ -556,8 +575,19 @@ const promesaSeleccionarPelicula = (pelicula) => {
         .prompt({
             type: 'rawlist',
             name: 'codMov',
-            message: 'Seleccione una pelicula',
+            message: 'Seleccione el codigo de la pelicula',
             choices: pelicula,
+        });
+
+}
+
+const promesaSeleccionarGeneroNombre = (genero) => {
+    return inquirer
+        .prompt({
+            type: 'list',
+            name: 'genderName',
+            message: 'Seleccione un genero',
+            choices: genero,
         });
 
 }
