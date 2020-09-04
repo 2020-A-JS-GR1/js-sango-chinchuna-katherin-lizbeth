@@ -1,15 +1,20 @@
 <!-- Property Biding: debe ser utilizado para setear valores a propiedades de una etiqueta
      comunicacion del componente hacia el html-->
 <img
-  [src]="urlEjemploImagen"
-  alt="">
+  [src]="urlImagen"
+  alt=""
+  (click)="ejecutarEventoDioClicImagem()"
+>
 <!-- Interpolacion: sirve para ejecutar o utilizar todas las propiedades de un componente, es unicamente para texto
      que se muestra en la interfaz-->
-<p>{{textoEjemplo}}</p>
+<a [href]="linkTextoEjemplo">
+  <p>{{descripcion}}</p>
+</a>
 <!-- Event Biding: para escuchar eventos, comunicacion del html hacia el componente -->
 <button
-  (click)="ejemploFuncion()"
+  (click)="ejecutarEventoDioClic()"
+  (blur)="eventOnBlur()"
 >
-  {{textoEjemplo}}
+  {{nombreBoton}}
 </button>
 

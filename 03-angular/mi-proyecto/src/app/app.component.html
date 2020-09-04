@@ -4,10 +4,30 @@ npm run start
 -->
 
 <h1>Lista de peliculas</h1>
+<!--directivas - NGFOR-->
+<!--<p *ngFor="let numero of arregloNumeros">
+  {{numero}}
+</p>-->
 
-<app-carta-pelicula>
+<!--directivas - NGFOR-->
+<p *ngIf="false">
+  OCULTO
+</p>
 
-</app-carta-pelicula>
+<div *ngFor="let pelicula of arregloPeliculas">
+  <app-carta-pelicula
+    [urlImagen] = "pelicula.url"
+    [descripcion]="pelicula.descripcion"
+    [nombreBoton]="pelicula.nombrePelicula"
+    (eventoDioClicEnBoton)="mensajeConsola($event)"
+    (eventoDioClicEnImagen)="mensajeConsola($event)"
+  >
+
+  </app-carta-pelicula>
+</div>
+
+
+
 
 <!--
 <h1>Titulo 1</h1>
