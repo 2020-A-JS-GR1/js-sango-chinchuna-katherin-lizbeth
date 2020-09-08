@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UsuarioService} from "./servicios/http/usuario.service";
 
 @Component({
@@ -6,8 +6,9 @@ import {UsuarioService} from "./servicios/http/usuario.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'mi-proyecto';
+  habilitado = true;
 
   arregloNumeros=[1,2,3];
   arregloPeliculas = [
@@ -30,6 +31,8 @@ export class AppComponent {
       nombrePelicula: 'Las aventuras del Doctor Dolittle'
     }
   ]
+  arregloUsuarios = [];
+  arregloObserables = [];
 
   //Inyectar dependencias
   constructor(
@@ -38,18 +41,54 @@ export class AppComponent {
 
   }
 
+  ngOnInit() {
+    this.mensajeConsola(true);
+  }
+
   mensajeConsola(objeto: boolean){
     console.log('Llego el evento',objeto);
 
     const observableTraerTodos = this._usuarioService.traerTodos();
-    observableTraerTodos
+    const suscripcion = observableTraerTodos
       .subscribe(
         (data) =>{ //THEN - TRY
           console.log(data);
+          this.arregloUsuarios = data as any [];
         },
         (error) =>{ //CATCH
           console.log(error);
         }
       )
+    this.arregloObserables.push(suscripcion);
+  }
+
+  crearUsuario(){
+    const usuarioNuevo = {
+      cedula: "1751235251",
+      nombre: "Mariana",
+      apellido: "Cardenas"
+    }
+
+    const obsCrearUsuario = this._usuarioService.crear(usuarioNuevo);
+    const suscripcion = obsCrearUsuario
+      .subscribe(
+        (datos) => {
+          console.log('Nuevo Usuario', datos);
+          this.mensajeConsola(true); //volvemos a llamar a las funciones para que se vuelvan a cargar los datos
+        },
+        (error) => {
+          console.error('Error', error);
+        }
+      )
+    this.arregloObserables.push(suscripcion);
+
   }
 }
+
+/* En el oneDestroy quedaria asi
+ this.arregloObserables.forEach(
+      (suscripcion) => {
+        suscripcion.unsubscribe();
+      }
+    )
+* */
