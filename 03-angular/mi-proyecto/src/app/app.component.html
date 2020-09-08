@@ -10,7 +10,7 @@ npm run start
 </p>-->
 
 <!--directivas - NGFOR-->
-<p *ngIf="false">
+<!--<p *ngIf="false">
   OCULTO
 </p>
 
@@ -25,6 +25,43 @@ npm run start
 
   </app-carta-pelicula>
 </div>
+
+<button (click)="crearUsuario()">
+  Crear Usuario
+</button>-->
+
+<button (click)="habilitado = !habilitado">
+  {{habilitado ? 'Habilitado' : 'Deshabilitado'}}
+</button>
+
+<app-carta-pelicula *ngIf="habilitado">
+
+</app-carta-pelicula>
+
+<div *ngFor="let usuario of arregloUsuarios">
+  {{usuario.nombre}}
+</div>
+
+<!-- menu -->
+<ul>
+  <li>
+    <a [routerLink]="['inicio']">
+      Ir Inicio
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['login']">
+      Ir Login
+    </a>
+  </li>
+</ul>
+
+<!--definicion del router outlet-->
+<router-outlet>
+
+</router-outlet>
+
+
 
 
 
