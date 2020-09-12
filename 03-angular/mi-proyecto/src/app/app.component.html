@@ -3,7 +3,7 @@ ng serve
 npm run start
 -->
 
-<h1>Lista de peliculas</h1>
+<!--<h1>Lista de peliculas</h1>-->
 <!--directivas - NGFOR-->
 <!--<p *ngFor="let numero of arregloNumeros">
   {{numero}}
@@ -30,7 +30,7 @@ npm run start
   Crear Usuario
 </button>-->
 
-<button (click)="habilitado = !habilitado">
+<!--<button (click)="habilitado = !habilitado">
   {{habilitado ? 'Habilitado' : 'Deshabilitado'}}
 </button>
 
@@ -38,9 +38,9 @@ npm run start
 
 </app-carta-pelicula>
 
-<div *ngFor="let usuario of arregloUsuarios">
-  {{usuario.nombre}}
-</div>
+<div *ngFor="let usuario of arregloUsuarios">-->
+<!--  {{usuario.nombre}}-->
+<!--</div>-->
 
 <!-- menu -->
 <ul>
@@ -52,6 +52,11 @@ npm run start
   <li>
     <a [routerLink]="['login']">
       Ir Login
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['usuario']">
+      Usuarios
     </a>
   </li>
 </ul>
