@@ -9,6 +9,10 @@ import {UsuarioService} from "./servicios/http/usuario.service";
 import { RutaInicioComponent } from './rutas/ruta-inicio/ruta-inicio.component';
 import { RutaLoginComponent } from './rutas/ruta-login/ruta-login.component';
 import { RutaDetalleUsuarioComponent } from './rutas/ruta-detalle-usuario/ruta-detalle-usuario.component';
+import { RutaUsuarioComponent } from './rutas/ruta-usuario/ruta-usuario.component';
+import { RutaListaUsuarioComponent } from './rutas/ruta-lista-usuario/ruta-lista-usuario.component';
+import { RutaCrearUsuarioComponent } from './rutas/ruta-crear-usuario/ruta-crear-usuario.component';
+import { RutaEditarUsuarioComponent } from './rutas/ruta-editar-usuario/ruta-editar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { RutaDetalleUsuarioComponent } from './rutas/ruta-detalle-usuario/ruta-d
     CartaPeliculaComponent,
     RutaInicioComponent,
     RutaLoginComponent,
-    RutaDetalleUsuarioComponent
+    RutaDetalleUsuarioComponent,
+    RutaUsuarioComponent,
+    RutaListaUsuarioComponent,
+    RutaCrearUsuarioComponent,
+    RutaEditarUsuarioComponent
   ],
   imports: [
     BrowserModule,
