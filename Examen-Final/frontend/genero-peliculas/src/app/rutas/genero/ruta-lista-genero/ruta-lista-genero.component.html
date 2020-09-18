@@ -1,0 +1,33 @@
+<button [routerLink]="['/genero', 'crear']">
+  Crear
+</button>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th>¿Es popular?</th>
+    <th>Año</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let genero of arregloGeneros">
+    <td>{{genero.id}}</td>
+    <td>{{genero.codigo}}</td>
+    <td>{{genero.nombre}}</td>
+    <td>{{genero.descripcion}}</td>
+    <td>{{genero.popular}}</td>
+    <td>{{genero.anio}}</td>
+    <td>
+
+      <button (click)="irAEditarGeneros(genero.id)">
+        Editar
+      </button>
+      <button (click)="eliminarGeneros(genero.id)">
+        Eliminar
+      </button>
+
+    </td>
+  </tr>
+</table>

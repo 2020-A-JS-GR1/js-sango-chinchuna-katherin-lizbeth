@@ -1,0 +1,81 @@
+<!--<h1>Formulario</h1>-->
+
+<form #formularioUsuario = "ngForm"
+      (ngSubmit)="crearUsuario(formularioUsuario)">
+  <div>
+    <label for="nombreId">Nombre: </label>
+    <input id="nombreId"
+           type="text"
+           name="nombre"
+           [(ngModel)]="nombreModelo"
+           required
+           minlength="3"
+           maxlength="10"
+           #nombreCampo = "ngModel"
+    >  <!--  en el name va el nombre de la variable en la base de datos  -->
+  </div>
+  <div *ngIf="nombreCampo.touched && nombreCampo.errors">
+    <p *ngIf="nombreCampo.errors.required">Error: campo requerido</p>
+    <p *ngIf="nombreCampo.errors.minlength">Error: longitud minima</p>
+  </div>
+
+  <div>
+    <label for="cedulaId">Cedula: </label>
+    <input id="cedulaId"
+           type="text"
+           name="cedula"
+           [(ngModel)]="cedulaModelo"
+           required
+    >
+  </div>
+  <div>
+    <label for="estadoCivilId">Estado civil: </label>
+    <select name="estadoCivil"
+            id="estadoCivilId"
+            [(ngModel)]="estadoCivilModelo"
+            required
+    >
+      <option value="Soltero"> E.S. Soltero</option>
+      <option value="Casado"> E.S. Casado</option>
+      <option value="Divorciado"> E.S. Divorciado</option>
+      <option value="Viudo"> E.S. Viudo </option>
+      <option value="Union libre"> E.S. Union Libre</option>
+    </select>
+  </div>
+
+  <button type="button" (click)="ayuda()">
+    BOTON (ayuda)
+  </button>
+  <button type="submit" [disabled]="!formularioUsuario.form.valid">
+    SUBMIT
+  </button>
+  <button type="reset">
+    RESET
+  </button>
+  <button>
+    DEFECTO (submit)
+  </button>
+</form>
+
+
+<!-- Cuando queremos que la entrada sean numeros usamos type number y min="0" max="10" -->
+<!--<div>
+  <label for="correoId">correo: </label>
+  <input id="correoId"
+         type="text"
+         name="correo"
+         required=""
+         email validar cuando queremos que sea correo
+         pattern="[0-9]" validar expresiones regulares
+  >
+  <label for="numeroId">numero: </label>
+  <input id="numeroId"
+         type="number"
+         step="0.1"  de cuantos en cuantos va a aumentar
+         min="0"  minimo para numeros
+         max="10"
+         required
+         email validar cuando queremos que sea correo
+         pattern="[0-9]" validar expresiones regulares
+  >
+</div> -->
