@@ -18,6 +18,7 @@ module.exports = {
       minLength: 3,
       maxLength: 6,
       required: true, // Por defecto es false
+
     },
 
     nombre:{
@@ -30,7 +31,6 @@ module.exports = {
     descripcion:{
       type: 'string',
       columnName: 'descripcion',
-      maxLength: 100,
     },
 
     popular:{
@@ -39,7 +39,7 @@ module.exports = {
       //columnType: 'Bool', //0 ó 1
     },
 
-    año:{
+    anio:{
       type: 'number',
       columnName: 'anio',
       columnType: 'integer',

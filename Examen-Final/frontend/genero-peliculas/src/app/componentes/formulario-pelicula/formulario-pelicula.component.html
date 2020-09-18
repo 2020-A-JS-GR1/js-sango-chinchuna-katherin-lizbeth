@@ -1,0 +1,90 @@
+<form #formularioPelicula = "ngForm"
+      (ngSubmit)="crearPelicula(formularioPelicula)">
+
+  <div>
+    <label for="codigoId">Codigo: </label>
+    <input id="codigoId"
+           type="text"
+           name="codigo_pelicula"
+           [(ngModel)]="codigoModelo"
+           required
+           minlength="3"
+           maxlength="10"
+           #codigoCampo = "ngModel"
+           placeholder="0001"
+    >  <!--  en el name va el nombre de la variable en la base de datos  -->
+  </div>
+  <div *ngIf="codigoCampo.touched && codigoCampo.errors">
+    <p *ngIf="codigoCampo.errors.required">Error: campo requerido</p>
+    <p *ngIf="codigoCampo.errors.minlength">Error: longitud minima</p>
+  </div>
+
+  <div>
+    <label for="nombreId">Nombre: </label>
+    <input id="nombreId"
+           type="text"
+           name="nombre_pelicula"
+           [(ngModel)]="nombreModelo"
+           required
+           minlength="3"
+           maxlength="50"
+           #nombreCampo = "ngModel"
+    >  <!--  en el name va el nombre de la variable en la base de datos  -->
+  </div>
+  <div *ngIf="nombreCampo.touched && nombreCampo.errors">
+    <p *ngIf="nombreCampo.errors.required">Error: campo requerido</p>
+    <p *ngIf="nombreCampo.errors.minlength">Error: longitud minima</p>
+    <p *ngIf="nombreCampo.errors.maxlength">Error: longitud maxima</p>
+  </div>
+
+  <div>
+    <label for="fechaEstrenoId">Fecha de estreno: </label>
+    <input id="fechaEstrenoId"
+           type="date"
+           name="trip-start"
+           value="2018-07-22"
+           min="2018-01-01"
+           max="2018-12-31">
+  </div>
+
+  <div>
+    <label for="estrenadaId">¿Ya se estrenó?: </label>
+    <select name="estrenada"
+            id="estrenadaId"
+            [(ngModel)]="estrenadaModelo"
+            required
+    >
+      <option value=true> Sí </option>
+      <option value=false> No </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="duracionId">Duracion: </label>
+    <input id="duracionId"
+           type="text"
+           name="anio"
+           [(ngModel)]="duracionModelo"
+    >
+    minutos
+  </div>
+
+  <div>
+    <label for="generoId" >Genero: </label>
+    <select name="genero"
+            id="generoId"
+            [(ngModel)]="generoModelo"
+    >
+      <option *ngFor="let genero of arregloGeneros" value="{{genero.id}}">
+        {{genero.nombre}}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="!formularioPelicula.form.valid">
+    SUBMIT
+  </button>
+  <button type="reset">
+    RESET
+  </button>
+</form>

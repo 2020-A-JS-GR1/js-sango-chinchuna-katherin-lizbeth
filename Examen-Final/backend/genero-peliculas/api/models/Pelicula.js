@@ -31,7 +31,6 @@ module.exports = {
       type: 'string',
       columnName: 'fecha_estreno',
       columnType: 'Date',  //año-mes-dia 2020/10/15
-      maxLength: 15,
     },
 
     estrenada:{

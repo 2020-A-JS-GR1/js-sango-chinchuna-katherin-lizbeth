@@ -1,0 +1,81 @@
+<form #formularioGenero = "ngForm"
+      (ngSubmit)="crearGenero(formularioGenero)">
+
+  <div>
+    <label for="codigoId">Codigo: </label>
+    <input id="codigoId"
+           type="text"
+           name="codigo_genero"
+           [(ngModel)]="codigoModelo"
+           required
+           minlength="3"
+           maxlength="10"
+           #codigoCampo = "ngModel"
+           placeholder="0001"
+    >  <!--  en el name va el nombre de la variable en la base de datos  -->
+  </div>
+  <div *ngIf="codigoCampo.touched && codigoCampo.errors">
+    <p *ngIf="codigoCampo.errors.required">Error: campo requerido</p>
+    <p *ngIf="codigoCampo.errors.minlength">Error: longitud minima</p>
+  </div>
+
+  <div>
+    <label for="nombreId">Nombre: </label>
+    <input id="nombreId"
+           type="text"
+           name="nombre_genero"
+           [(ngModel)]="nombreModelo"
+           required
+           minlength="3"
+           maxlength="50"
+           #nombreCampo = "ngModel"
+    >  <!--  en el name va el nombre de la variable en la base de datos  -->
+  </div>
+  <div *ngIf="nombreCampo.touched && nombreCampo.errors">
+    <p *ngIf="nombreCampo.errors.required">Error: campo requerido</p>
+    <p *ngIf="nombreCampo.errors.minlength">Error: longitud minima</p>
+    <p *ngIf="nombreCampo.errors.maxlength">Error: longitud maxima</p>
+  </div>
+
+  <div>
+    <label for="descripcionId">Descripcion: </label>
+    <input id="descripcionId"
+           type="text"
+           name="descripcion"
+           [(ngModel)]="descripcionModelo"
+           maxlength="150"
+           #descripcionCampo = "ngModel"
+    >
+  </div>
+  <div *ngIf="descripcionCampo.errors">
+    <p *ngIf="descripcionCampo.errors.maxlength">Error: longitud maxima</p>
+  </div>
+
+  <div>
+    <label for="popularId">¿Es un género popular?: </label>
+    <select name="popular"
+            id="popularId"
+            [(ngModel)]="popularModelo"
+            required
+    >
+      <option value="true"> Sí </option>
+      <option value="false"> No </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="anioId">Año de aparición: </label>
+    <input id="anioId"
+           type="text"
+           name="anio"
+           [(ngModel)]="anioModelo"
+    >
+  </div>
+
+  <button type="submit" [disabled]="!formularioGenero.form.valid">
+    SUBMIT
+  </button>
+  <button type="reset">
+    RESET
+  </button>
+</form>

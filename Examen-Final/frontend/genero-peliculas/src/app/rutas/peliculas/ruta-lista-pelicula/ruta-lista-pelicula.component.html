@@ -1,0 +1,33 @@
+<button [routerLink]="['/pelicula', 'crear']">
+  Crear
+</button>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Fecha de estreno</th>
+    <th>¿Ya se estrenó?</th>
+    <th>Duración</th>
+    <th>Género</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let pelicula of arregloPeliculas">
+    <td>{{pelicula.id}}</td>
+    <td>{{pelicula.codigo}}</td>
+    <td>{{pelicula.nombre}}</td>
+    <td>{{pelicula.fechaEstreno.substring(0,10)}}</td>
+    <td>{{pelicula.estrenada}}</td>
+    <td>{{pelicula.duracion}}</td>
+    <td>{{pelicula.genero.nombre}}</td>
+    <td>
+      <button (click)="irAEditarPeliculas(pelicula.id)">
+        Editar
+      </button>
+      <button (click)="eliminarPeliculas(pelicula.id)">
+        Eliminar
+      </button>
+    </td>
+  </tr>
+</table>
