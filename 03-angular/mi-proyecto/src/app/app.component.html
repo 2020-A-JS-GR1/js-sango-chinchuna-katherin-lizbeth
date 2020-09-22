@@ -54,12 +54,33 @@ npm run start
       Ir Login
     </a>
   </li>
-  <li>
+  <li *ngIf="_authService.estaAutenticada">
     <a [routerLink]="['usuario']">
       Usuarios
     </a>
   </li>
 </ul>
+
+<button mat-button
+color="accent">
+  Boton Material
+</button>
+
+<button type="button"
+        class="btn btn-outline-secondary mr-2"
+        placement="top"
+        ngbTooltip="Cuidado"
+>
+  Tooltip on top
+</button>
+<p placement="bottom" ngbTooltip="Otro mas"> EJEMPLO</p>
+
+<p-button
+  label="Hola desde primeng"
+  class="p-button-secondary"
+>
+
+</p-button>
 
 <!--definicion del router outlet-->
 <router-outlet>

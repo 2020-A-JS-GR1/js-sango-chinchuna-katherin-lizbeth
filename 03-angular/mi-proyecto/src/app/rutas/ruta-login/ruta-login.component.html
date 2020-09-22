@@ -1,5 +1,7 @@
 <!--<p>ruta-login works!</p>-->
 
+{{_authService.estaAutenticada}}
+
 <form #formularioLogin="ngForm"
       (ngSubmit)="revisarLogin(formularioLogin)">
   <label for="correoID">Correo: </label>
