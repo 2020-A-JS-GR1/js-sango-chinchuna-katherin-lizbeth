@@ -1,5 +1,10 @@
 <!--<p>ruta-lista-usuario works!</p>-->
 
+<label for="busquedaID">Busqueda</label>
+<input id="busquedaID" name="busqueda" type="text" [(ngModel)]="busquedaModelo">
+<button (click)="filtrarArreglo()">
+  Buscar
+</button>
 
 <table>
   <tr>

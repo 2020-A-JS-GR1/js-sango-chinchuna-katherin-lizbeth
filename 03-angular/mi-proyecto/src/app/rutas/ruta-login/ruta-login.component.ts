@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RutaLoginComponent implements OnInit {
 
+  correoModelo: string;
+  cedulaModelo: string;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  revisarLogin(formulario){
+
   }
 
 }

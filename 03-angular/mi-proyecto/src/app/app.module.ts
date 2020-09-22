@@ -37,7 +37,8 @@ import {FormsModule} from "@angular/forms";
     //importa el HttpClient inyectado en el usuario service
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    //AuthService
   ],
   bootstrap: [AppComponent]
 })
