@@ -15,6 +15,14 @@ import { RutaCrearUsuarioComponent } from './rutas/ruta-crear-usuario/ruta-crear
 import { RutaEditarUsuarioComponent } from './rutas/ruta-editar-usuario/ruta-editar-usuario.component';
 import { FormularioUsuarioComponent } from './componentes/formularios/formulario-usuario/formulario-usuario.component';
 import {FormsModule} from "@angular/forms";
+import {AuthService} from "./servicios/auth/auth.service";
+import {EstaLogueadoGuard} from "./servicios/guards/esta-logueado.guard";
+import {EsAdministradorGuard} from "./servicios/guards/es-administrador.guard";
+import {EsSupervisorGuard} from "./servicios/guards/es-supervisor.guard";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -33,11 +41,19 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, //Permita funcionalidad de los formularios template
+    FormsModule,
+    BrowserAnimationsModule, //Permita funcionalidad de los formularios template (animaciones de angular material)
     //importa el HttpClient inyectado en el usuario service
+    MatButtonModule,  //boton de angular material
+    NgbModule,
+    ButtonModule
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    AuthService,
+    EstaLogueadoGuard,
+    EsAdministradorGuard,
+    EsSupervisorGuard
   ],
   bootstrap: [AppComponent]
 })

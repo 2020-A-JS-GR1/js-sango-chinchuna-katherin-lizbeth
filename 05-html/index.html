@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    Estilos-->
+<!--    <style>-->
+<!--        body {color: blue}-->
+<!--    </style>-->
+    <!--  Bundling o empaquetacion: meter varios archivos en uno solo -->
+<!--    <link rel="stylesheet" href="css/botones.css">-->
+<!--    <link rel="stylesheet" href="css/estilos-generales.css">-->
+<!--    <link rel="stylesheet" href="css/tablas.css">-->
+    <link rel="stylesheet" href="css/completo.min.css">
+<!--    <style>-->
+<!--        /*Busqueda por etiqueta*/-->
+<!--        h1{-->
+<!--            color: brown;-->
+<!--        }-->
+<!--        /*Busqueda por id*/-->
+<!--        #rojo{-->
+<!--            color: green;-->
+<!--        }-->
+<!--        /*Busqueda por clase*/-->
+<!--        .verde{-->
+<!--            color: greenyellow;-->
+<!--        }-->
+
+
+<!--        /*style > id > class > nombre etiqueta*/-->
+
+<!--        #verde{-->
+<!--            background-color: greenyellow;-->
+<!--        }-->
+<!--        .azul{-->
+<!--            background-color: lightblue;-->
+<!--        }-->
+<!--        p{-->
+<!--            background-color: orange;-->
+<!--        }-->
+
+<!--        /* Combinators*/-->
+<!--        li.lista > p{-->
+<!--            background-color: hotpink;-->
+<!--        }-->
+
+<!--        li.lista{-->
+<!--            color: mediumvioletred;-->
+<!--        }-->
+
+<!--        /*caja*/-->
+<!--        h1{-->
+<!--            border-width: 3px;-->
+<!--            border-color: blue;-->
+<!--            border-style: solid;-->
+<!--            /*border: 3px blue solid;*/-->
+<!--            padding: 30px;-->
+<!--            margin: 50px;-->
+<!--            margin-top: 50px;-->
+<!--            margin-left: 50px;-->
+<!--            margin-bottom: 0px;-->
+<!--            margin-right: 0px;-->
+
+<!--            background-color: palevioletred;-->
+<!--        }-->
+<!--    </style>-->
+
+    <!-- CSS only bootstrap -->
+<!--    <link rel="stylesheet"-->
+<!--          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"-->
+<!--          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"-->
+<!--          crossorigin="anonymous">-->
+
+<!--  css es el completo - tiene todo  -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <style>
+        .rojo{
+            background-color: red;
+        }
+        .azul{
+            background-color: blue;
+        }
+        .amarillo{
+            background-color: yellow;
+        }
+        .rosado{
+            background-color: pink;
+        }
+        .verde{
+            background-color: green;
+        }
+        .naranja{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Componentes</h1>
+
+<!--  Componenestes CSS  -->
+    <div class="container">
+        <div class="alert alert-primary" role="alert">
+            A simple primary alert—check it out!
+        </div>
+    </div>
+
+    <!--   Botones     -->
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+
+    <button type="button" class="btn btn-link">Link</button>
+
+    <!--  Cartas  -->
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+<!--  Componentes JS  -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    <h1>Grillas</h1>-->
+<!--&lt;!&ndash;  Numero de columnas 12 &ndash;&gt;-->
+<!--    <div class="row">-->
+<!--        <div class="col-sm-4 amarillo">-->
+<!--            1-->
+<!--        </div>-->
+<!--        <div class="col-sm-4 azul">-->
+<!--            2-->
+<!--        </div>-->
+<!--        <div class="col-sm-4 rojo">-->
+<!--            3-->
+<!--        </div>-->
+<!--        <div class="col-sm-12 rosado">-->
+<!--            4-->
+<!--            <div class="row">-->
+<!--                <div class="col-sm-8 verde">-->
+<!--                    8-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-sm-4 amarillo">1</div>-->
+<!--                        <div class="col-sm-4 rosado">2</div>-->
+<!--                        <div class="col-sm-4 azul">3</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-4 amarillo">-->
+<!--                    4-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-sm-6 rojo">-->
+<!--            5-->
+<!--        </div>-->
+<!--        <div class="col-sm-6 verde">-->
+<!--            6-->
+<!--        </div>-->
+
+<!--        <div class="col-sm-6 rosado">12</div>-->
+<!--        <div class="col-sm-6 rosado">12</div>-->
+<!--        <div class="col-md-6 amarillo">12</div>-->
+<!--        <div class="col-md-6 amarillo">12</div>-->
+<!--        <div class="col-lg-6 rojo">12</div>-->
+<!--        <div class="col-lg-6 rojo">12</div>-->
+<!--    </div>-->
+
+
+<!-- Estilos -->
+<!--<h1>Capitulo</h1>-->
+<!--<h1 class="verde">Numero 1</h1>-->
+<!--<p id="rojo">Parrafo uno</p>-->
+<!--<p class="verde">Parrafo dos</p>-->
+<!--<p>Parrafo tres</p>-->
+
+<!--<p id="verde"-->
+<!--    class="azul"-->
+<!--    style="background-color:yellow;">-->
+<!--    Parrafo cuatro-->
+<!--</p>-->
+
+<!--<ul>-->
+<!--    <li class="lista">-->
+<!--        <p>Uno</p>-->
+<!--    </li>-->
+<!--    <li class="lista">-->
+<!--        <p>Dos</p>-->
+<!--    </li>-->
+<!--    <li class="lista">-->
+<!--        <p>Tres</p>-->
+<!--    </li>-->
+<!--</ul>-->
+
+<!--<ul>-->
+<!--    <li>-->
+<!--        <p>Uno</p>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <p>Dos</p>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <p>Tres</p>-->
+<!--    </li>-->
+<!--</ul>-->
+
+<!-- Tipos de etiquetas-->
+<!--&lt;!&ndash;  Cabeceras  &ndash;&gt;-->
+<!--    <h1>C1</h1>-->
+<!--    <h2>C2</h2>-->
+<!--    <h3>C3</h3>-->
+<!--    <h4>C4</h4>-->
+<!--    <h5>C5</h5>-->
+<!--    <h6>C6</h6>-->
+<!--&lt;!&ndash; Parrafos &ndash;&gt;-->
+<!--    <p> Soy un parrafo</p>-->
+<!--&lt;!&ndash; Listas ordenadas y no ordenadas &ndash;&gt;-->
+<!--&lt;!&ndash;    unordered list&ndash;&gt;-->
+<!--    <ul>-->
+<!--&lt;!&ndash;        list item&ndash;&gt;-->
+<!--        <li>Pan</li>-->
+<!--        <li>Queso</li>-->
+<!--        <li>Huevos</li>-->
+<!--    </ul>-->
+<!--&lt;!&ndash;    ordered list&ndash;&gt;-->
+<!--    <ol>-->
+<!--        <li>Lunes</li>-->
+<!--        <li>Martes</li>-->
+<!--        <li>Miercoles</li>-->
+<!--    </ol>-->
+
+<!--&lt;!&ndash; Imagenes &ndash;&gt;-->
+<!--    <img src="https://www.hazunaweb.com/imagenes/prueba.jpg" alt="Imagen de paisaje">-->
+<!--&lt;!&ndash;Botones&ndash;&gt;-->
+<!--    <button type="button">-->
+<!--        Aceptar-->
+<!--    </button>-->
+<!--&lt;!&ndash; Anclas &ndash;&gt;-->
+<!--    <a href="https://www.google.com.ec">-->
+<!--        Ir a google-->
+<!--    </a>-->
+<!--<a href="https://www.google.com.ec">-->
+<!--    <button>-->
+<!--        Ir a Google-->
+<!--    </button>-->
+<!--</a>-->
+<!--<a href="https://www.google.com.ec">-->
+<!--    <p>Ir a google desde parrafo</p>-->
+<!--</a>-->
+<!--<a href="https://www.google.com.ec">-->
+<!--    <img src="https://www.hazunaweb.com/imagenes/prueba.jpg"-->
+<!--         alt="Imagen de paisaje"-->
+<!--    width="300"-->
+<!--    height="300">-->
+<!--</a>-->
+<!--&lt;!&ndash; Tabla &ndash;&gt;-->
+<!--<table>-->
+<!--&lt;!&ndash;    Table row&ndash;&gt;-->
+<!--    <tr>-->
+<!--&lt;!&ndash;        Table header&ndash;&gt;-->
+<!--        <th>Nombre</th>-->
+<!--        <th>Apellido</th>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--&lt;!&ndash;        Table detail&ndash;&gt;-->
+<!--        <td>Katherin</td>-->
+<!--        <td>Sango</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Lizbeth</td>-->
+<!--        <td>Chinchuña</td>-->
+<!--    </tr>-->
+<!--</table>-->
+
+
+
+
+    <script>
+        console.log('Hola mundo');
+    </script>
+<!--    <script src="js/formularios.js"></script>-->
+<!--    <script src="js/funcionalidad.js"></script>-->
+<!--    <script src="js/tablas.js"></script>-->
+    <script src="js/completo.min.js"></script>
+<!--    Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
