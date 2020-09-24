@@ -1,33 +1,50 @@
-<button [routerLink]="['/genero', 'crear']">
+<button [routerLink]="['/genero', 'crear']"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="button"
+        aria-pressed="false"
+>
   Crear
 </button>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Codigo</th>
-    <th>Nombre</th>
-    <th>Descripcion</th>
-    <th>¿Es popular?</th>
-    <th>Año</th>
-    <th>Acciones</th>
-  </tr>
-  <tr *ngFor="let genero of arregloGeneros">
-    <td>{{genero.id}}</td>
-    <td>{{genero.codigo}}</td>
-    <td>{{genero.nombre}}</td>
-    <td>{{genero.descripcion}}</td>
-    <td>{{genero.popular}}</td>
-    <td>{{genero.anio}}</td>
-    <td>
+<p>
 
-      <button (click)="irAEditarGeneros(genero.id)">
-        Editar
-      </button>
-      <button (click)="eliminarGeneros(genero.id)">
-        Eliminar
-      </button>
-
-    </td>
-  </tr>
+</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">¿Es popular?</th>
+      <th scope="col">Año</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let genero of arregloGeneros">
+<!--    <th scope="row">{{ genero.id }}</th>-->
+      <td>{{genero.id}}</td>
+      <td>{{genero.codigo}}</td>
+      <td>{{genero.nombre}}</td>
+      <td>{{genero.descripcion}}</td>
+      <td>{{genero.popular}}</td>
+      <td>{{genero.anio}}</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button (click)="irAEditarGeneros(genero.id)"
+                  type="button"
+                  class="btn btn-secondary">
+            Editar
+          </button>
+          <button (click)="eliminarGeneros(genero.id)"
+                  type="button"
+                  class="btn btn-secondary">
+            Eliminar
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
 </table>

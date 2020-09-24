@@ -1,8 +1,8 @@
 <form #formularioPelicula = "ngForm"
-      (ngSubmit)="crearPelicula(formularioPelicula)">
+      (ngSubmit)="crearPeliculas(formularioPelicula)">
 
   <div>
-    <label for="codigoId">Codigo: </label>
+    <label for="codigoId" class="col-sm-2">Código: </label>
     <input id="codigoId"
            type="text"
            name="codigo_pelicula"
@@ -20,9 +20,10 @@
   </div>
 
   <div>
-    <label for="nombreId">Nombre: </label>
+    <label for="nombreId" class="col-sm-2">Nombre: </label>
     <input id="nombreId"
            type="text"
+           class="col-sm-4"
            name="nombre_pelicula"
            [(ngModel)]="nombreModelo"
            required
@@ -38,17 +39,16 @@
   </div>
 
   <div>
-    <label for="fechaEstrenoId">Fecha de estreno: </label>
+    <label for="fechaEstrenoId" class="col-sm-2">Fecha de estreno: </label>
     <input id="fechaEstrenoId"
            type="date"
-           name="trip-start"
-           value="2018-07-22"
-           min="2018-01-01"
-           max="2018-12-31">
+           name="dp"
+           [(ngModel)]= "fechaModelo"
+           min="1900-01-01">
   </div>
 
   <div>
-    <label for="estrenadaId">¿Ya se estrenó?: </label>
+    <label for="estrenadaId" class="col-sm-2">¿Ya se estrenó?: </label>
     <select name="estrenada"
             id="estrenadaId"
             [(ngModel)]="estrenadaModelo"
@@ -60,7 +60,7 @@
   </div>
 
   <div>
-    <label for="duracionId">Duracion: </label>
+    <label for="duracionId" class="col-sm-2">Duración: </label>
     <input id="duracionId"
            type="text"
            name="anio"
@@ -70,7 +70,7 @@
   </div>
 
   <div>
-    <label for="generoId" >Genero: </label>
+    <label for="generoId" class="col-sm-2">Género: </label>
     <select name="genero"
             id="generoId"
             [(ngModel)]="generoModelo"
@@ -81,10 +81,19 @@
     </select>
   </div>
 
-  <button type="submit" [disabled]="!formularioPelicula.form.valid">
+<div class="col-sm-4">
+  <button type="submit"
+          [disabled]="!formularioPelicula.form.valid"
+          class="btn btn-outline-primary mr-2"
+  >
     SUBMIT
   </button>
-  <button type="reset">
+  <button type="reset"
+          class="btn btn-outline-primary mr-2"
+  >
     RESET
   </button>
+</div>
+
+
 </form>

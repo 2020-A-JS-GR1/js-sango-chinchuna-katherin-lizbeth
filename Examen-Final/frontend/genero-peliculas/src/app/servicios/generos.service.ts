@@ -23,6 +23,10 @@ export class GenerosService{
     return this._httpClient.post(this.url + '/Genero',genero);
   }
 
+  editar(genero, id){
+    return this._httpClient.put(this.url + '/Genero/' + id, genero )
+  }
+
   eliminar(idGenero:number){
     return this._httpClient.delete(this.url +'/Genero/'+idGenero);
   }

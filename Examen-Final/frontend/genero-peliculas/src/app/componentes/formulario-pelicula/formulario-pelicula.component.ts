@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {GenerosService} from "../../servicios/generos.service";
+import {consoleTestResultHandler} from "tslint/lib/test";
+import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-formulario-pelicula',
@@ -8,12 +10,35 @@ import {GenerosService} from "../../servicios/generos.service";
 })
 export class FormularioPeliculaComponent implements OnInit {
 
+  @Input()
+  codigoInput: string;
+
+  @Input()
+  nombreInput: string;
+
+  @Input()
+  fechaInput: string;
+
+  @Input()
+  estrenadaInput: string;
+
+  @Input()
+  duracionInput: string;
+
+  @Input()
+  generoInput; //objeto de genero
+
+  @Output()
+  informacionPeliculaValidada: EventEmitter<any> = new EventEmitter<any>();
+
+  model: NgbDateStruct;
+
   codigoModelo: string;
   nombreModelo: string;
-  fechaModelo: string;
+  fechaModelo: string = '2018-12-02';
   estrenadaModelo: string;
   duracionModelo: string;
-  generoModelo:string;
+  generoModelo;
 
   arregloGeneros = [];
 
@@ -22,6 +47,7 @@ export class FormularioPeliculaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     const observableTraerTodos = this._generoService.traerTodos();
 
     observableTraerTodos
@@ -33,9 +59,18 @@ export class FormularioPeliculaComponent implements OnInit {
           console.log('Error', error)
         }
       )
+
+    if (this.codigoInput && this.nombreInput){
+      this.codigoModelo = this.codigoInput;
+      this.nombreModelo = this.nombreInput;
+      this.fechaModelo = this.fechaInput;
+      this.estrenadaModelo = this.estrenadaInput;
+      this.duracionModelo = this.duracionInput;
+      this.generoModelo = this.generoInput;
+    }
   }
 
-  crearPelicula(formulario){
+  crearPeliculas(formulario){
     const cod = this.codigoModelo;
     const duracion = this.duracionModelo;
     const codigoEsNumero = !Number.isNaN(Number(cod));
@@ -47,10 +82,18 @@ export class FormularioPeliculaComponent implements OnInit {
     }
 
     if (codigoEsNumero && esNumero){
-
       //Llamar al servicio http y enviar un post al servidor con los datos al formulario
-
       console.log('OK :)');
+
+      //mismos nombres entidad
+      this.informacionPeliculaValidada.emit({
+        codigo: this.codigoModelo,
+        nombre: this.nombreModelo,
+        fechaEstreno: this.fechaModelo,
+        estrenada: this.estrenadaModelo,
+        duracion: this.duracionModelo,
+        genero: this.generoModelo
+      })
     }else {
       console.log('NO ES UN NUMERO');
     }

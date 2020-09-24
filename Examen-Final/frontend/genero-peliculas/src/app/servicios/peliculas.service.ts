@@ -23,6 +23,10 @@ export class PeliculasService{
     return this._httpClient.post(this.url + '/Pelicula',pelicula);
   }
 
+  editar(pelicula, id){
+    return this._httpClient.put(this.url + '/Pelicula/' + id, pelicula )
+  }
+
   eliminar(idPelicula:number){
     return this._httpClient.delete(this.url +'/Pelicula/'+idPelicula);
   }

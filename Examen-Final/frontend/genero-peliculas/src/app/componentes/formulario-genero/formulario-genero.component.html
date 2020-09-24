@@ -1,8 +1,8 @@
 <form #formularioGenero = "ngForm"
       (ngSubmit)="crearGenero(formularioGenero)">
 
-  <div>
-    <label for="codigoId">Codigo: </label>
+  <div class="form-group">
+    <label for="codigoId" class="col-sm-2">Código: </label>
     <input id="codigoId"
            type="text"
            name="codigo_genero"
@@ -19,10 +19,11 @@
     <p *ngIf="codigoCampo.errors.minlength">Error: longitud minima</p>
   </div>
 
-  <div>
-    <label for="nombreId">Nombre: </label>
+  <div class="form-group">
+    <label for="nombreId" class="col-sm-2">Nombre: </label>
     <input id="nombreId"
            type="text"
+           class="col-sm-4"
            name="nombre_genero"
            [(ngModel)]="nombreModelo"
            required
@@ -30,17 +31,18 @@
            maxlength="50"
            #nombreCampo = "ngModel"
     >  <!--  en el name va el nombre de la variable en la base de datos  -->
-  </div>
+  </div >
   <div *ngIf="nombreCampo.touched && nombreCampo.errors">
     <p *ngIf="nombreCampo.errors.required">Error: campo requerido</p>
     <p *ngIf="nombreCampo.errors.minlength">Error: longitud minima</p>
     <p *ngIf="nombreCampo.errors.maxlength">Error: longitud maxima</p>
   </div>
 
-  <div>
-    <label for="descripcionId">Descripcion: </label>
+  <div class="form-group">
+    <label for="descripcionId" class="col-sm-2">Descripción: </label>
     <input id="descripcionId"
            type="text"
+           class="form-control-sm col-sm-9"
            name="descripcion"
            [(ngModel)]="descripcionModelo"
            maxlength="150"
@@ -51,8 +53,8 @@
     <p *ngIf="descripcionCampo.errors.maxlength">Error: longitud maxima</p>
   </div>
 
-  <div>
-    <label for="popularId">¿Es un género popular?: </label>
+  <div class="form-group">
+    <label for="popularId" class="col-sm-2">¿Es un género popular?: </label>
     <select name="popular"
             id="popularId"
             [(ngModel)]="popularModelo"
@@ -63,8 +65,8 @@
     </select>
   </div>
 
-  <div>
-    <label for="anioId">Año de aparición: </label>
+  <div class="form-group">
+    <label for="anioId" class="col-sm-2">Año de aparición: </label>
     <input id="anioId"
            type="text"
            name="anio"
@@ -72,10 +74,18 @@
     >
   </div>
 
-  <button type="submit" [disabled]="!formularioGenero.form.valid">
-    SUBMIT
-  </button>
-  <button type="reset">
-    RESET
-  </button>
+  <div class="col-sm-4">
+    <button type="submit"
+            [disabled]="!formularioGenero.form.valid"
+            class="btn btn-outline-primary mr-2"
+    >
+      SUBMIT
+    </button>
+    <button type="reset"
+            class="btn btn-outline-primary mr-2"
+    >
+      RESET
+    </button>
+  </div>
+
 </form>
