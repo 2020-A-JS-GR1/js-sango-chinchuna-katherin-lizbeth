@@ -1,33 +1,52 @@
-<button [routerLink]="['/pelicula', 'crear']">
+<button [routerLink]="['/pelicula', 'crear']"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="button"
+        aria-pressed="false"
+>
   Crear
 </button>
+<p>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Codigo</th>
-    <th>Nombre</th>
-    <th>Fecha de estreno</th>
-    <th>¿Ya se estrenó?</th>
-    <th>Duración</th>
-    <th>Género</th>
-    <th>Acciones</th>
-  </tr>
-  <tr *ngFor="let pelicula of arregloPeliculas">
-    <td>{{pelicula.id}}</td>
-    <td>{{pelicula.codigo}}</td>
-    <td>{{pelicula.nombre}}</td>
-    <td>{{pelicula.fechaEstreno.substring(0,10)}}</td>
-    <td>{{pelicula.estrenada}}</td>
-    <td>{{pelicula.duracion}}</td>
-    <td>{{pelicula.genero.nombre}}</td>
-    <td>
-      <button (click)="irAEditarPeliculas(pelicula.id)">
-        Editar
-      </button>
-      <button (click)="eliminarPeliculas(pelicula.id)">
-        Eliminar
-      </button>
-    </td>
-  </tr>
+</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Fecha de estreno</th>
+      <th>¿Ya se estrenó?</th>
+      <th>Duración</th>
+      <th>Género</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pelicula of arregloPeliculas">
+      <td>{{pelicula.id}}</td>
+      <td>{{pelicula.codigo}}</td>
+      <td>{{pelicula.nombre}}</td>
+      <td>{{pelicula.fechaEstreno.substring(0,10)}}</td>
+      <td>{{pelicula.estrenada}}</td>
+      <td>{{pelicula.duracion}}</td>
+      <td>{{pelicula.genero.nombre}}</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+        <button (click)="irAEditarPeliculas(pelicula.id)"
+                type="button"
+                class="btn btn-secondary"
+        >
+          Editar
+        </button>
+        <button (click)="eliminarPeliculas(pelicula.id)"
+                type="button"
+                class="btn btn-secondary"
+        >
+          Eliminar
+        </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
 </table>

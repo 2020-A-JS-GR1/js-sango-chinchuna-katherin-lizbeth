@@ -1,7 +1,21 @@
-<p>{{pelicula?.id}}</p>
-<p>{{pelicula?.codigo}}</p>
-<p>{{pelicula?.nombre}}</p>
-<p>{{pelicula?.fechaEstreno.substr(0,10)}}</p>
-<p>{{pelicula?.estrenada}}</p>
-<p>{{pelicula?.duracion}}</p>
-<p>{{pelicula?.genero.nombre}}</p>
+<!--<p>{{pelicula?.id}}</p>-->
+<!--<p>{{pelicula?.codigo}}</p>-->
+<!--<p>{{pelicula?.nombre}}</p>-->
+<!--<p>{{pelicula?.fechaEstreno.substr(0,10)}}</p>-->
+<!--<p>{{pelicula?.estrenada}}</p>-->
+<!--<p>{{pelicula?.duracion}}</p>-->
+<!--<p>{{pelicula?.genero.nombre}}</p>-->
+<div *ngIf="mostrarFormularioPelicula">
+  <app-formulario-pelicula
+
+    [codigoInput]="pelicula.codigo"
+    [nombreInput]="pelicula?.nombre"
+    [fechaInput]="pelicula.fechaEstreno"
+    [estrenadaInput]="pelicula.estrenada"
+    [duracionInput]="pelicula.duracion"
+    [generoInput]="pelicula.genero.id"
+    (informacionPeliculaValidada)="editarPelicula($event)"
+  >
+  </app-formulario-pelicula>
+</div>
+

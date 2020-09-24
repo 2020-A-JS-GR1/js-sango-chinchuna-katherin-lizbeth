@@ -1,16 +1,25 @@
 <h1>Géneros Películas</h1>
 
-<ul>
-  <li>
-    <a [routerLink]="['genero']">
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink [routerLink]="['genero']">
       Géneros
     </a>
+<!--    <ng-template ngbNavContent>-->
+<!--      First content-->
+<!--    </ng-template>-->
   </li>
-  <li>
-    <a [routerLink]="['pelicula']">
+
+  <li ngbNavItem>
+    <a ngbNavLink [routerLink]="['pelicula']">
       Películas
     </a>
+<!--    <ng-template ngbNavContent>-->
+<!--      Second content-->
+<!--    </ng-template>-->
   </li>
+
 </ul>
+<!--<div [ngbNavOutlet]="nav"></div>-->
 
 <router-outlet></router-outlet>

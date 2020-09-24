@@ -30,7 +30,7 @@ module.exports = {
     fechaEstreno:{
       type: 'string',
       columnName: 'fecha_estreno',
-      columnType: 'Date',  //año-mes-dia 2020/10/15
+      columnType: 'Date',  //año-mes-dia 2020-10-15
     },
 
     estrenada:{

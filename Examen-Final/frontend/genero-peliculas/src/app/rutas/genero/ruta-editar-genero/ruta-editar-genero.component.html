@@ -1,6 +1,19 @@
-<p>{{genero?.id}}</p>
-<p>{{genero?.codigo}}</p>
-<p>{{genero?.nombre}}</p>
-<p>{{genero?.descripcion}}</p>
-<p>{{genero?.popular}}</p>
-<p>{{genero?.anio}}</p>
+<!--<p>{{genero?.id}}</p>-->
+<!--<p>{{genero?.codigo}}</p>-->
+<!--<p>{{genero?.nombre}}</p>-->
+<!--<p>{{genero?.descripcion}}</p>-->
+<!--<p>{{genero?.popular}}</p>-->
+<!--<p>{{genero?.anio}}</p>-->
+
+<div *ngIf="mostrarFormularioGenero">
+  <app-formulario-genero
+    [codigoInput]="genero.codigo"
+    [nombreInput]="genero.nombre"
+    [descripcionInput]="genero.descripcion"
+    [popularInput]="genero.popular"
+    [anioInput]="genero.anio"
+    (informacionValidada)="editarGenero($event)"
+  >
+
+  </app-formulario-genero>
+</div>

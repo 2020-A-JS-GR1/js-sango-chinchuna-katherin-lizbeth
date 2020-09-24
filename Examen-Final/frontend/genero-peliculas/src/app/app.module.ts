@@ -20,6 +20,7 @@ import {PeliculasService} from "./servicios/peliculas.service";
 import { FormularioGeneroComponent } from './componentes/formulario-genero/formulario-genero.component';
 import { FormularioPeliculaComponent } from './componentes/formulario-pelicula/formulario-pelicula.component';
 import {FormsModule} from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     GenerosService,
