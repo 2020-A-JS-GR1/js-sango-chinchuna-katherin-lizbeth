@@ -11,8 +11,8 @@ export class PeliculasService{
   ) {
   }
 
-  traerTodos(){
-    return this._httpClient.get(this.url+'/Pelicula')
+  traerTodos(consulta?:string){
+    return this._httpClient.get(this.url+'/Pelicula?' + consulta)
   }
 
   obtenerUnoPorId(idPelicula: number){

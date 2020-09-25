@@ -48,7 +48,7 @@ export class FormularioPeliculaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const observableTraerTodos = this._generoService.traerTodos();
+    const observableTraerTodos = this._generoService.traerTodos('');
 
     observableTraerTodos
       .subscribe(

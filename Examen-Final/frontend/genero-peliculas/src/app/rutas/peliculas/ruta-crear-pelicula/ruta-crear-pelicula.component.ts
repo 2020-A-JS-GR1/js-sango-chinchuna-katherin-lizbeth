@@ -18,7 +18,7 @@ export class RutaCrearPeliculaComponent implements OnInit {
   }
 
   crearPelicula(pelicula){
-    console.log(pelicula)
+    //console.log(pelicula)
     const obsCrearPelicula = this._peliculaService.crear(pelicula)
     obsCrearPelicula
       .subscribe(

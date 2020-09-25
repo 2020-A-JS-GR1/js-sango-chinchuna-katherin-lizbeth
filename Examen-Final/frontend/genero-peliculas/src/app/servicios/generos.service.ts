@@ -11,8 +11,8 @@ export class GenerosService{
   ) {
   }
 
-  traerTodos(){
-    return this._httpClient.get(this.url+'/Genero')
+  traerTodos(consulta?:string){
+    return this._httpClient.get(this.url+'/Genero?'+ consulta)
   }
 
   obtenerUnoPorId(idGenero: number){

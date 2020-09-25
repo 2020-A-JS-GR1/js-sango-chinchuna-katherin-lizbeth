@@ -1,3 +1,20 @@
+<div class="form-group form-inline">
+  <label for="busquedaID">Búsqueda: </label>
+  <input id="busquedaID"
+         name="busqueda"
+         class="form-control ml-2"
+         type="text"
+         [(ngModel)]="busquedaModelo"
+  />
+  <button class="btn btn-primary ml-1" (click)="filtrarArregloGeneros()">
+    Buscar
+  </button>
+</div>
+
+<p>
+
+</p>
+
 <button [routerLink]="['/genero', 'crear']"
         type="button"
         class="btn btn-primary"
@@ -6,10 +23,10 @@
 >
   Crear
 </button>
-
 <p>
 
 </p>
+
 <table class="table table-striped">
   <thead>
     <tr>
