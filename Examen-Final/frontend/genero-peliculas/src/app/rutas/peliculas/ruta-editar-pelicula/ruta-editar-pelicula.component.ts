@@ -48,7 +48,6 @@ export class RutaEditarPeliculaComponent implements OnInit {
 
   editarPelicula(pelicula){
     const obsEditarPelicula = this._peliculaService.editar(pelicula, this.pelicula.id);
-    console.log(pelicula) //pelicula no esta agarrando genero
     obsEditarPelicula
       .subscribe(
         (datos)=>{

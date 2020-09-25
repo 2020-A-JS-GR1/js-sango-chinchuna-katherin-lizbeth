@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class RutaListaPeliculaComponent implements OnInit {
 
   arregloPeliculas = [];
+  busquedaPeliculasModelo = '';
 
   constructor(
     private readonly _peliculaService:PeliculasService,
@@ -17,17 +18,7 @@ export class RutaListaPeliculaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const observableTraerTodos = this._peliculaService.traerTodos();
-
-    observableTraerTodos
-      .subscribe(
-        (peliculas:any[]) => {
-          this.arregloPeliculas = peliculas;
-        },
-        (error) => {
-          console.log('Error', error)
-        }
-      )
+    this.filtrarArregloPeliculas();
   }
 
   irAEditarPeliculas(id: number){
@@ -52,5 +43,39 @@ export class RutaListaPeliculaComponent implements OnInit {
           console.error('Error', error);
         }
       )
+  }
+
+  filtrarArregloPeliculas(){
+
+    const consulta = {
+      or: [
+        {
+          nombre: {
+            contains: this.busquedaPeliculasModelo
+          }
+        },
+        {
+          codigo: {
+            contains: this.busquedaPeliculasModelo
+          }
+        },
+      ]
+    }
+
+    const stringConsultaPeliculas= 'where=' + JSON.stringify(consulta);
+
+    const observableTraerTodos = this._peliculaService
+      .traerTodos(this.busquedaPeliculasModelo != '' ? stringConsultaPeliculas: '');
+
+    observableTraerTodos
+      .subscribe(
+        (peliculas:any[]) => {
+          this.arregloPeliculas = peliculas;
+        },
+        (error) => {
+          console.log('Error', error)
+        }
+      )
+    this.busquedaPeliculasModelo = ''
   }
 }

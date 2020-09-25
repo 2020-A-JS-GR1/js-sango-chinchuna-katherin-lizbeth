@@ -10,6 +10,7 @@ import {GenerosService} from "../../../servicios/generos.service";
 export class RutaListaGeneroComponent implements OnInit {
 
   arregloGeneros = [];
+  busquedaModelo = '';
 
   constructor(
     private readonly _generoService: GenerosService,
@@ -17,17 +18,7 @@ export class RutaListaGeneroComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const observableTraerTodos = this._generoService.traerTodos();
-
-    observableTraerTodos
-      .subscribe(
-        (generos:any[]) => {
-          this.arregloGeneros = generos;
-        },
-        (error) => {
-          console.log('Error', error)
-        }
-      )
+    this.filtrarArregloGeneros();
   }
 
   irAEditarGeneros(id: number){
@@ -52,6 +43,40 @@ export class RutaListaGeneroComponent implements OnInit {
           console.error('Error', error);
         }
       )
+  }
+
+  filtrarArregloGeneros(){
+
+    const consulta = {
+      or: [
+        {
+          nombre: {
+            contains: this.busquedaModelo
+          }
+        },
+        {
+          codigo: {
+            contains: this.busquedaModelo
+          }
+        },
+      ]
+    }
+
+    const stringConsultaGenero = 'where=' + JSON.stringify(consulta);
+
+    const observableTraerTodos = this._generoService
+      .traerTodos(this.busquedaModelo != '' ? stringConsultaGenero: '');
+
+    observableTraerTodos
+      .subscribe(
+        (generos:any[]) => {
+          this.arregloGeneros = generos;
+        },
+        (error) => {
+          console.log('Error', error)
+        }
+      )
+    this.busquedaModelo = ''
   }
 
 }
